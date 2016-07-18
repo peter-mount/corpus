@@ -10,18 +10,25 @@
 extern "C" {
 #endif
 
-    struct corpus_entry {
+#define CORPUS_TALPHA     3
+#define CORPUS_TIPLOC     7
+#define CORPUS_NLCDESC   32
+#define CORPUS_NLCDESC16 16
+
+    struct CorpusEntry {
         int stanox;
         int nlc;
         int uic;
-        char talpha[4];
-        char tiploc[16];
-        char nlcdesc[65];
-        char nlcdesc16[17];
+        char talpha[CORPUS_TALPHA + 1];
+        char tiploc[CORPUS_TIPLOC + 1];
+        char nlcdesc[CORPUS_NLCDESC + 1];
+        char nlcdesc16[CORPUS_NLCDESC16 + 1];
     };
 
-    extern int corpus_import(FILE *in,FILE *out);
-    
+#define CORPUS_REC_LEN ((size_t)sizeof(struct CorpusEntry))
+
+    extern int corpus_import(FILE *in, FILE *out);
+
 #ifdef __cplusplus
 }
 #endif
