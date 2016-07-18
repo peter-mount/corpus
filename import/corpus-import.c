@@ -8,10 +8,10 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <area51/json.h>
+#include <area51/log.h>
 #include <networkrail/corpus.h>
 #include <networkrail/corpus/import.h>
-#include <json-c/json.h>
-#include <log.h>
 
 #include <fcntl.h>
 #include <elf.h>
@@ -29,46 +29,29 @@ int main(int argc, char** argv) {
         exit(1);
     }
 
-    loginfo("Reading %s", argv[1]);
+    logconsole("Reading %s", argv[1]);
 
     int fsock = open(argv[1], O_RDONLY);
     if (fsock == -1) {
-        loginfo("No source %s", argv[1]);
+        logconsole("No source %s", argv[1]);
         exit(1);
     }
 
-    struct stat sb;
-    if (fstat(fsock, &sb) == -1) {
-        loginfo("No stat %s", argv[1]);
+    struct json_object *obj = json_parse_file(fsock);
+    if (!obj) {
+        logconsole("Failed to parse json");
         exit(1);
     }
 
-    void *fmap = mmap(NULL, sb.st_size, PROT_READ, MAP_PRIVATE, fsock, 0);
-    if (fmap == MAP_FAILED) {
-        loginfo("No mmap %s", argv[1]);
-        exit(1);
-    }
-    
-    loginfo("Parsing %s", argv[1]);
-    struct json_object *obj = json_tokener_parse(fmap);
-    
-    munmap(fmap,sb.st_size);
     close(fsock);
-
-    /*
-        if( json_object_get_type(obj) != json_type.json_type_object) {
-            loginfo("Invalid corpus file");
-            exit(1);
-        }
-     */
 
     struct json_object *tiplocData;
     if (!json_object_object_get_ex(obj, "TIPLOCDATA", &tiplocData)) {
-        loginfo("No TIPLOCDATA");
+        logconsole("No TIPLOCDATA");
         exit(1);
     }
 
-    loginfo("Importing corpus");
+    logconsole("Importing corpus");
     struct List data;
     list_init(&data);
 
@@ -82,7 +65,7 @@ int main(int argc, char** argv) {
             list_addTail(&data, &node->node);
     }
 
-    loginfo("Writing %s", argv[2]);
+    logconsole("Writing %s", argv[2]);
     FILE *out = fopen(argv[2], "w");
 
     // Number of records

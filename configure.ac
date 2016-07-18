@@ -65,59 +65,9 @@ AS_IF([test "x$enable_dependencies" != "xno" -a "x$DISTRIBUTION" != "x" -a -n "$
 ])
 
 # ======================================================================
-# json-c
-# ======================================================================
-AH_TEMPLATE(HAVE_JSON_C, [json-c])
-json=1
-AC_CHECK_HEADER(json-c/json.h, [], [json=0])
-AC_CHECK_LIB(json-c, json_tokener_parse, [], [json=0])
-if test $json == 1
-then
-    AC_DEFINE(HAVE_JSON_C)
-    LDFLAGS="$LDFLAGS -ljson-c"
-fi
-
-# ======================================================================
-# area51
-# ======================================================================
-AH_TEMPLATE(HAVE_AREA51, [area51])
-area51=1
-AC_CHECK_HEADER(area51/list.h, [], [area51=0])
-#AC_CHECK_LIB(microhttpd, MHD_start_daemon, [], [microhttpd=0])
-if test $area51== 1
-then
-    AC_DEFINE(HAVE_AREA51)
-    LDFLAGS="$LDFLAGS -larea51"
-fi
-
-# ======================================================================
-# libcurl3 optional for logging data to 3rd party websites
-# ======================================================================
-AH_TEMPLATE(HAVE_CURL, [Curl HTTP client])
-AC_ARG_WITH([curl],
-    AS_HELP_STRING([--without-curl], [disable Curl HTTP support]))
-AS_IF([test "x$with_curl" != "xno"],
-    [
-        curl=1
-        AC_CHECK_HEADER(curl/curl.h, [], [curl=0])
-        AC_CHECK_LIB(curl, curl_easy_cleanup, [], [curl=0])
-    ],[
-        curl=0
-    ])
-AS_IF([test $curl == 1],
-    [
-        AC_MSG_NOTICE([Enabling Curl HTTP support])
-        AC_DEFINE(HAVE_CURL)
-        LDFLAGS="$LDFLAGS -lcurl"
-    ],[
-        AC_MSG_NOTICE([Disabled Curl HTTP support])
-    ])
-AC_SUBST([CURL],[${curl}])
-
-# ======================================================================
 # Finish off generating all files
 
-LDFLAGS="-lcorpus $LDFLAGS"
+LDFLAGS="-lcorpus $LDFLAGS -larea51 -ljson-c -lcurl"
 
 # add libraries based on the directory names, in reverse order to aid linking
 for d in $DIRS
@@ -125,7 +75,7 @@ do
     LDFLAGS="-l$d $LDFLAGS"
 done
 
-LDFLAGS="-larea51 $LDFLAGS -lpthread -lm"
+LDFLAGS="$LDFLAGS -lpthread -lm"
 
 DIRS="lib $DIRS $APPS"
 

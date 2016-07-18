@@ -9,8 +9,8 @@
 #ifndef IMPORT_H
 #define IMPORT_H
 
+#include <area51/json.h>
 #include <area51/list.h>
-#include <json-c/json.h>
 #include <networkrail/corpus.h>
 
 #ifdef __cplusplus

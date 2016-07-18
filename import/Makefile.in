@@ -10,7 +10,7 @@
 
 CCFLAGS = -O2 @CCFLAGS@
 CPPFLAGS = -I.. @CPPFLAGS@
-LDFLAGS ?= @LDFLAGS@
+LDFLAGS = @LDFLAGS@
 
 # Location of build directory
 BUILD_DIR   = ../build
