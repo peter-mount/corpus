@@ -1,0 +1,8 @@
+MODULE = corpus
+
+# config
+OBJS =  util/import.o
+
+OBJS += log.o
+
+include ../SubMakefile
