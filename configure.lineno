@@ -588,6 +588,8 @@ ac_subst_vars='LTLIBOBJS
 LIBOBJS
 CCFLAGS
 DIRECTORIES
+PKGBUILD
+PKGBANNER
 DEPENDENCIES
 APK
 APT_GET
@@ -1365,7 +1367,7 @@ case "(($ac_try" in
   *\"* | *\`* | *\\*) ac_try_echo=\$ac_try;;
   *) ac_try_echo=$ac_try;;
 esac
-eval ac_try_echo="\"\$as_me:${as_lineno-1368}: $ac_try_echo\""
+eval ac_try_echo="\"\$as_me:${as_lineno-1370}: $ac_try_echo\""
 $as_echo "$ac_try_echo"; } >&5
   (eval "$ac_compile") 2>conftest.err
   ac_status=$?
@@ -1374,7 +1376,7 @@ $as_echo "$ac_try_echo"; } >&5
     cat conftest.er1 >&5
     mv -f conftest.er1 conftest.err
   fi
-  $as_echo "$as_me:${as_lineno-1377}: \$? = $ac_status" >&5
+  $as_echo "$as_me:${as_lineno-1379}: \$? = $ac_status" >&5
   test $ac_status = 0; } && {
 	 test -z "$ac_c_werror_flag" ||
 	 test ! -s conftest.err
@@ -1516,7 +1518,7 @@ trap 'exit_status=$?
     case $ac_val in #(
     *${as_nl}*)
       case $ac_var in #(
-      *_cv_*) { $as_echo "$as_me:${as_lineno-1519}: WARNING: cache variable $ac_var contains a newline" >&5
+      *_cv_*) { $as_echo "$as_me:${as_lineno-1521}: WARNING: cache variable $ac_var contains a newline" >&5
 $as_echo "$as_me: WARNING: cache variable $ac_var contains a newline" >&2;} ;;
       esac
       case $ac_var in #(
@@ -1646,14 +1648,14 @@ for ac_site_file in "$ac_site_file1" "$ac_site_file2"
 do
   test "x$ac_site_file" = xNONE && continue
   if test /dev/null != "$ac_site_file" && test -r "$ac_site_file"; then
-    { $as_echo "$as_me:${as_lineno-1649}: loading site script $ac_site_file" >&5
+    { $as_echo "$as_me:${as_lineno-1651}: loading site script $ac_site_file" >&5
 $as_echo "$as_me: loading site script $ac_site_file" >&6;}
     sed 's/^/| /' "$ac_site_file" >&5
     . "$ac_site_file" \
-      || { { $as_echo "$as_me:${as_lineno-1653}: error: in \`$ac_pwd':" >&5
+      || { { $as_echo "$as_me:${as_lineno-1655}: error: in \`$ac_pwd':" >&5
 $as_echo "$as_me: error: in \`$ac_pwd':" >&2;}
 as_fn_error $? "failed to load site script $ac_site_file
-See \`config.log' for more details" "1656" 5; }
+See \`config.log' for more details" "1658" 5; }
   fi
 done
 
@@ -1661,7 +1663,7 @@ if test -r "$cache_file"; then
   # Some versions of bash will fail to source /dev/null (special files
   # actually), so we avoid doing that.  DJGPP emulates it as a regular file.
   if test /dev/null != "$cache_file" && test -f "$cache_file"; then
-    { $as_echo "$as_me:${as_lineno-1664}: loading cache $cache_file" >&5
+    { $as_echo "$as_me:${as_lineno-1666}: loading cache $cache_file" >&5
 $as_echo "$as_me: loading cache $cache_file" >&6;}
     case $cache_file in
       [\\/]* | ?:[\\/]* ) . "$cache_file";;
@@ -1669,7 +1671,7 @@ $as_echo "$as_me: loading cache $cache_file" >&6;}
     esac
   fi
 else
-  { $as_echo "$as_me:${as_lineno-1672}: creating cache $cache_file" >&5
+  { $as_echo "$as_me:${as_lineno-1674}: creating cache $cache_file" >&5
 $as_echo "$as_me: creating cache $cache_file" >&6;}
   >$cache_file
 fi
@@ -1684,11 +1686,11 @@ for ac_var in $ac_precious_vars; do
   eval ac_new_val=\$ac_env_${ac_var}_value
   case $ac_old_set,$ac_new_set in
     set,)
-      { $as_echo "$as_me:${as_lineno-1687}: error: \`$ac_var' was set to \`$ac_old_val' in the previous run" >&5
+      { $as_echo "$as_me:${as_lineno-1689}: error: \`$ac_var' was set to \`$ac_old_val' in the previous run" >&5
 $as_echo "$as_me: error: \`$ac_var' was set to \`$ac_old_val' in the previous run" >&2;}
       ac_cache_corrupted=: ;;
     ,set)
-      { $as_echo "$as_me:${as_lineno-1691}: error: \`$ac_var' was not set in the previous run" >&5
+      { $as_echo "$as_me:${as_lineno-1693}: error: \`$ac_var' was not set in the previous run" >&5
 $as_echo "$as_me: error: \`$ac_var' was not set in the previous run" >&2;}
       ac_cache_corrupted=: ;;
     ,);;
@@ -1698,17 +1700,17 @@ $as_echo "$as_me: error: \`$ac_var' was not set in the previous run" >&2;}
 	ac_old_val_w=`echo x $ac_old_val`
 	ac_new_val_w=`echo x $ac_new_val`
 	if test "$ac_old_val_w" != "$ac_new_val_w"; then
-	  { $as_echo "$as_me:${as_lineno-1701}: error: \`$ac_var' has changed since the previous run:" >&5
+	  { $as_echo "$as_me:${as_lineno-1703}: error: \`$ac_var' has changed since the previous run:" >&5
 $as_echo "$as_me: error: \`$ac_var' has changed since the previous run:" >&2;}
 	  ac_cache_corrupted=:
 	else
-	  { $as_echo "$as_me:${as_lineno-1705}: warning: ignoring whitespace changes in \`$ac_var' since the previous run:" >&5
+	  { $as_echo "$as_me:${as_lineno-1707}: warning: ignoring whitespace changes in \`$ac_var' since the previous run:" >&5
 $as_echo "$as_me: warning: ignoring whitespace changes in \`$ac_var' since the previous run:" >&2;}
 	  eval $ac_var=\$ac_old_val
 	fi
-	{ $as_echo "$as_me:${as_lineno-1709}:   former value:  \`$ac_old_val'" >&5
+	{ $as_echo "$as_me:${as_lineno-1711}:   former value:  \`$ac_old_val'" >&5
 $as_echo "$as_me:   former value:  \`$ac_old_val'" >&2;}
-	{ $as_echo "$as_me:${as_lineno-1711}:   current value: \`$ac_new_val'" >&5
+	{ $as_echo "$as_me:${as_lineno-1713}:   current value: \`$ac_new_val'" >&5
 $as_echo "$as_me:   current value: \`$ac_new_val'" >&2;}
       fi;;
   esac
@@ -1725,11 +1727,11 @@ $as_echo "$as_me:   current value: \`$ac_new_val'" >&2;}
   fi
 done
 if $ac_cache_corrupted; then
-  { $as_echo "$as_me:${as_lineno-1728}: error: in \`$ac_pwd':" >&5
+  { $as_echo "$as_me:${as_lineno-1730}: error: in \`$ac_pwd':" >&5
 $as_echo "$as_me: error: in \`$ac_pwd':" >&2;}
-  { $as_echo "$as_me:${as_lineno-1730}: error: changes in the environment can compromise the build" >&5
+  { $as_echo "$as_me:${as_lineno-1732}: error: changes in the environment can compromise the build" >&5
 $as_echo "$as_me: error: changes in the environment can compromise the build" >&2;}
-  as_fn_error $? "run \`make distclean' and/or \`rm $cache_file' and start over" "1732" 5
+  as_fn_error $? "run \`make distclean' and/or \`rm $cache_file' and start over" "1734" 5
 fi
 ## -------------------- ##
 ## Main body of script. ##
@@ -1752,7 +1754,7 @@ ac_compiler_gnu=$ac_cv_c_compiler_gnu
 if test -n "$ac_tool_prefix"; then
   # Extract the first word of "${ac_tool_prefix}gcc", so it can be a program name with args.
 set dummy ${ac_tool_prefix}gcc; ac_word=$2
-{ $as_echo "$as_me:${as_lineno-1755}: checking for $ac_word" >&5
+{ $as_echo "$as_me:${as_lineno-1757}: checking for $ac_word" >&5
 $as_echo_n "checking for $ac_word... " >&6; }
 if ${ac_cv_prog_CC+:} false; then :
   $as_echo_n "(cached) " >&6
@@ -1768,7 +1770,7 @@ do
     for ac_exec_ext in '' $ac_executable_extensions; do
   if as_fn_executable_p "$as_dir/$ac_word$ac_exec_ext"; then
     ac_cv_prog_CC="${ac_tool_prefix}gcc"
-    $as_echo "$as_me:${as_lineno-1771}: found $as_dir/$ac_word$ac_exec_ext" >&5
+    $as_echo "$as_me:${as_lineno-1773}: found $as_dir/$ac_word$ac_exec_ext" >&5
     break 2
   fi
 done
@@ -1779,10 +1781,10 @@ fi
 fi
 CC=$ac_cv_prog_CC
 if test -n "$CC"; then
-  { $as_echo "$as_me:${as_lineno-1782}: result: $CC" >&5
+  { $as_echo "$as_me:${as_lineno-1784}: result: $CC" >&5
 $as_echo "$CC" >&6; }
 else
-  { $as_echo "$as_me:${as_lineno-1785}: result: no" >&5
+  { $as_echo "$as_me:${as_lineno-1787}: result: no" >&5
 $as_echo "no" >&6; }
 fi
 
@@ -1792,7 +1794,7 @@ if test -z "$ac_cv_prog_CC"; then
   ac_ct_CC=$CC
   # Extract the first word of "gcc", so it can be a program name with args.
 set dummy gcc; ac_word=$2
-{ $as_echo "$as_me:${as_lineno-1795}: checking for $ac_word" >&5
+{ $as_echo "$as_me:${as_lineno-1797}: checking for $ac_word" >&5
 $as_echo_n "checking for $ac_word... " >&6; }
 if ${ac_cv_prog_ac_ct_CC+:} false; then :
   $as_echo_n "(cached) " >&6
@@ -1808,7 +1810,7 @@ do
     for ac_exec_ext in '' $ac_executable_extensions; do
   if as_fn_executable_p "$as_dir/$ac_word$ac_exec_ext"; then
     ac_cv_prog_ac_ct_CC="gcc"
-    $as_echo "$as_me:${as_lineno-1811}: found $as_dir/$ac_word$ac_exec_ext" >&5
+    $as_echo "$as_me:${as_lineno-1813}: found $as_dir/$ac_word$ac_exec_ext" >&5
     break 2
   fi
 done
@@ -1819,10 +1821,10 @@ fi
 fi
 ac_ct_CC=$ac_cv_prog_ac_ct_CC
 if test -n "$ac_ct_CC"; then
-  { $as_echo "$as_me:${as_lineno-1822}: result: $ac_ct_CC" >&5
+  { $as_echo "$as_me:${as_lineno-1824}: result: $ac_ct_CC" >&5
 $as_echo "$ac_ct_CC" >&6; }
 else
-  { $as_echo "$as_me:${as_lineno-1825}: result: no" >&5
+  { $as_echo "$as_me:${as_lineno-1827}: result: no" >&5
 $as_echo "no" >&6; }
 fi
 
@@ -1831,7 +1833,7 @@ fi
   else
     case $cross_compiling:$ac_tool_warned in
 yes:)
-{ $as_echo "$as_me:${as_lineno-1834}: WARNING: using cross tools not prefixed with host triplet" >&5
+{ $as_echo "$as_me:${as_lineno-1836}: WARNING: using cross tools not prefixed with host triplet" >&5
 $as_echo "$as_me: WARNING: using cross tools not prefixed with host triplet" >&2;}
 ac_tool_warned=yes ;;
 esac
@@ -1845,7 +1847,7 @@ if test -z "$CC"; then
           if test -n "$ac_tool_prefix"; then
     # Extract the first word of "${ac_tool_prefix}cc", so it can be a program name with args.
 set dummy ${ac_tool_prefix}cc; ac_word=$2
-{ $as_echo "$as_me:${as_lineno-1848}: checking for $ac_word" >&5
+{ $as_echo "$as_me:${as_lineno-1850}: checking for $ac_word" >&5
 $as_echo_n "checking for $ac_word... " >&6; }
 if ${ac_cv_prog_CC+:} false; then :
   $as_echo_n "(cached) " >&6
@@ -1861,7 +1863,7 @@ do
     for ac_exec_ext in '' $ac_executable_extensions; do
   if as_fn_executable_p "$as_dir/$ac_word$ac_exec_ext"; then
     ac_cv_prog_CC="${ac_tool_prefix}cc"
-    $as_echo "$as_me:${as_lineno-1864}: found $as_dir/$ac_word$ac_exec_ext" >&5
+    $as_echo "$as_me:${as_lineno-1866}: found $as_dir/$ac_word$ac_exec_ext" >&5
     break 2
   fi
 done
@@ -1872,10 +1874,10 @@ fi
 fi
 CC=$ac_cv_prog_CC
 if test -n "$CC"; then
-  { $as_echo "$as_me:${as_lineno-1875}: result: $CC" >&5
+  { $as_echo "$as_me:${as_lineno-1877}: result: $CC" >&5
 $as_echo "$CC" >&6; }
 else
-  { $as_echo "$as_me:${as_lineno-1878}: result: no" >&5
+  { $as_echo "$as_me:${as_lineno-1880}: result: no" >&5
 $as_echo "no" >&6; }
 fi
 
@@ -1885,7 +1887,7 @@ fi
 if test -z "$CC"; then
   # Extract the first word of "cc", so it can be a program name with args.
 set dummy cc; ac_word=$2
-{ $as_echo "$as_me:${as_lineno-1888}: checking for $ac_word" >&5
+{ $as_echo "$as_me:${as_lineno-1890}: checking for $ac_word" >&5
 $as_echo_n "checking for $ac_word... " >&6; }
 if ${ac_cv_prog_CC+:} false; then :
   $as_echo_n "(cached) " >&6
@@ -1906,7 +1908,7 @@ do
        continue
      fi
     ac_cv_prog_CC="cc"
-    $as_echo "$as_me:${as_lineno-1909}: found $as_dir/$ac_word$ac_exec_ext" >&5
+    $as_echo "$as_me:${as_lineno-1911}: found $as_dir/$ac_word$ac_exec_ext" >&5
     break 2
   fi
 done
@@ -1929,10 +1931,10 @@ fi
 fi
 CC=$ac_cv_prog_CC
 if test -n "$CC"; then
-  { $as_echo "$as_me:${as_lineno-1932}: result: $CC" >&5
+  { $as_echo "$as_me:${as_lineno-1934}: result: $CC" >&5
 $as_echo "$CC" >&6; }
 else
-  { $as_echo "$as_me:${as_lineno-1935}: result: no" >&5
+  { $as_echo "$as_me:${as_lineno-1937}: result: no" >&5
 $as_echo "no" >&6; }
 fi
 
@@ -1944,7 +1946,7 @@ if test -z "$CC"; then
   do
     # Extract the first word of "$ac_tool_prefix$ac_prog", so it can be a program name with args.
 set dummy $ac_tool_prefix$ac_prog; ac_word=$2
-{ $as_echo "$as_me:${as_lineno-1947}: checking for $ac_word" >&5
+{ $as_echo "$as_me:${as_lineno-1949}: checking for $ac_word" >&5
 $as_echo_n "checking for $ac_word... " >&6; }
 if ${ac_cv_prog_CC+:} false; then :
   $as_echo_n "(cached) " >&6
@@ -1960,7 +1962,7 @@ do
     for ac_exec_ext in '' $ac_executable_extensions; do
   if as_fn_executable_p "$as_dir/$ac_word$ac_exec_ext"; then
     ac_cv_prog_CC="$ac_tool_prefix$ac_prog"
-    $as_echo "$as_me:${as_lineno-1963}: found $as_dir/$ac_word$ac_exec_ext" >&5
+    $as_echo "$as_me:${as_lineno-1965}: found $as_dir/$ac_word$ac_exec_ext" >&5
     break 2
   fi
 done
@@ -1971,10 +1973,10 @@ fi
 fi
 CC=$ac_cv_prog_CC
 if test -n "$CC"; then
-  { $as_echo "$as_me:${as_lineno-1974}: result: $CC" >&5
+  { $as_echo "$as_me:${as_lineno-1976}: result: $CC" >&5
 $as_echo "$CC" >&6; }
 else
-  { $as_echo "$as_me:${as_lineno-1977}: result: no" >&5
+  { $as_echo "$as_me:${as_lineno-1979}: result: no" >&5
 $as_echo "no" >&6; }
 fi
 
@@ -1988,7 +1990,7 @@ if test -z "$CC"; then
 do
   # Extract the first word of "$ac_prog", so it can be a program name with args.
 set dummy $ac_prog; ac_word=$2
-{ $as_echo "$as_me:${as_lineno-1991}: checking for $ac_word" >&5
+{ $as_echo "$as_me:${as_lineno-1993}: checking for $ac_word" >&5
 $as_echo_n "checking for $ac_word... " >&6; }
 if ${ac_cv_prog_ac_ct_CC+:} false; then :
   $as_echo_n "(cached) " >&6
@@ -2004,7 +2006,7 @@ do
     for ac_exec_ext in '' $ac_executable_extensions; do
   if as_fn_executable_p "$as_dir/$ac_word$ac_exec_ext"; then
     ac_cv_prog_ac_ct_CC="$ac_prog"
-    $as_echo "$as_me:${as_lineno-2007}: found $as_dir/$ac_word$ac_exec_ext" >&5
+    $as_echo "$as_me:${as_lineno-2009}: found $as_dir/$ac_word$ac_exec_ext" >&5
     break 2
   fi
 done
@@ -2015,10 +2017,10 @@ fi
 fi
 ac_ct_CC=$ac_cv_prog_ac_ct_CC
 if test -n "$ac_ct_CC"; then
-  { $as_echo "$as_me:${as_lineno-2018}: result: $ac_ct_CC" >&5
+  { $as_echo "$as_me:${as_lineno-2020}: result: $ac_ct_CC" >&5
 $as_echo "$ac_ct_CC" >&6; }
 else
-  { $as_echo "$as_me:${as_lineno-2021}: result: no" >&5
+  { $as_echo "$as_me:${as_lineno-2023}: result: no" >&5
 $as_echo "no" >&6; }
 fi
 
@@ -2031,7 +2033,7 @@ done
   else
     case $cross_compiling:$ac_tool_warned in
 yes:)
-{ $as_echo "$as_me:${as_lineno-2034}: WARNING: using cross tools not prefixed with host triplet" >&5
+{ $as_echo "$as_me:${as_lineno-2036}: WARNING: using cross tools not prefixed with host triplet" >&5
 $as_echo "$as_me: WARNING: using cross tools not prefixed with host triplet" >&2;}
 ac_tool_warned=yes ;;
 esac
@@ -2042,13 +2044,13 @@ fi
 fi
 
 
-test -z "$CC" && { { $as_echo "$as_me:${as_lineno-2045}: error: in \`$ac_pwd':" >&5
+test -z "$CC" && { { $as_echo "$as_me:${as_lineno-2047}: error: in \`$ac_pwd':" >&5
 $as_echo "$as_me: error: in \`$ac_pwd':" >&2;}
 as_fn_error $? "no acceptable C compiler found in \$PATH
-See \`config.log' for more details" "2048" 5; }
+See \`config.log' for more details" "2050" 5; }
 
 # Provide some information about the compiler.
-$as_echo "$as_me:${as_lineno-2051}: checking for C compiler version" >&5
+$as_echo "$as_me:${as_lineno-2053}: checking for C compiler version" >&5
 set X $ac_compile
 ac_compiler=$2
 for ac_option in --version -v -V -qversion; do
@@ -2057,7 +2059,7 @@ case "(($ac_try" in
   *\"* | *\`* | *\\*) ac_try_echo=\$ac_try;;
   *) ac_try_echo=$ac_try;;
 esac
-eval ac_try_echo="\"\$as_me:${as_lineno-2060}: $ac_try_echo\""
+eval ac_try_echo="\"\$as_me:${as_lineno-2062}: $ac_try_echo\""
 $as_echo "$ac_try_echo"; } >&5
   (eval "$ac_compiler $ac_option >&5") 2>conftest.err
   ac_status=$?
@@ -2068,7 +2070,7 @@ $as_echo "$ac_try_echo"; } >&5
     cat conftest.er1 >&5
   fi
   rm -f conftest.er1 conftest.err
-  $as_echo "$as_me:${as_lineno-2071}: \$? = $ac_status" >&5
+  $as_echo "$as_me:${as_lineno-2073}: \$? = $ac_status" >&5
   test $ac_status = 0; }
 done
 
@@ -2088,7 +2090,7 @@ ac_clean_files="$ac_clean_files a.out a.out.dSYM a.exe b.out"
 # Try to create an executable without -o first, disregard a.out.
 # It will help us diagnose broken compilers, and finding out an intuition
 # of exeext.
-{ $as_echo "$as_me:${as_lineno-2091}: checking whether the C compiler works" >&5
+{ $as_echo "$as_me:${as_lineno-2093}: checking whether the C compiler works" >&5
 $as_echo_n "checking whether the C compiler works... " >&6; }
 ac_link_default=`$as_echo "$ac_link" | sed 's/ -o *conftest[^ ]*//'`
 
@@ -2110,11 +2112,11 @@ case "(($ac_try" in
   *\"* | *\`* | *\\*) ac_try_echo=\$ac_try;;
   *) ac_try_echo=$ac_try;;
 esac
-eval ac_try_echo="\"\$as_me:${as_lineno-2113}: $ac_try_echo\""
+eval ac_try_echo="\"\$as_me:${as_lineno-2115}: $ac_try_echo\""
 $as_echo "$ac_try_echo"; } >&5
   (eval "$ac_link_default") 2>&5
   ac_status=$?
-  $as_echo "$as_me:${as_lineno-2117}: \$? = $ac_status" >&5
+  $as_echo "$as_me:${as_lineno-2119}: \$? = $ac_status" >&5
   test $ac_status = 0; }; then :
   # Autoconf-2.13 could set the ac_cv_exeext variable to `no'.
 # So ignore a value of `no', otherwise this would lead to `EXEEXT = no'
@@ -2152,39 +2154,39 @@ else
   ac_file=''
 fi
 if test -z "$ac_file"; then :
-  { $as_echo "$as_me:${as_lineno-2155}: result: no" >&5
+  { $as_echo "$as_me:${as_lineno-2157}: result: no" >&5
 $as_echo "no" >&6; }
 $as_echo "$as_me: failed program was:" >&5
 sed 's/^/| /' conftest.$ac_ext >&5
 
-{ { $as_echo "$as_me:${as_lineno-2160}: error: in \`$ac_pwd':" >&5
+{ { $as_echo "$as_me:${as_lineno-2162}: error: in \`$ac_pwd':" >&5
 $as_echo "$as_me: error: in \`$ac_pwd':" >&2;}
 as_fn_error 77 "C compiler cannot create executables
-See \`config.log' for more details" "2163" 5; }
+See \`config.log' for more details" "2165" 5; }
 else
-  { $as_echo "$as_me:${as_lineno-2165}: result: yes" >&5
+  { $as_echo "$as_me:${as_lineno-2167}: result: yes" >&5
 $as_echo "yes" >&6; }
 fi
-{ $as_echo "$as_me:${as_lineno-2168}: checking for C compiler default output file name" >&5
+{ $as_echo "$as_me:${as_lineno-2170}: checking for C compiler default output file name" >&5
 $as_echo_n "checking for C compiler default output file name... " >&6; }
-{ $as_echo "$as_me:${as_lineno-2170}: result: $ac_file" >&5
+{ $as_echo "$as_me:${as_lineno-2172}: result: $ac_file" >&5
 $as_echo "$ac_file" >&6; }
 ac_exeext=$ac_cv_exeext
 
 rm -f -r a.out a.out.dSYM a.exe conftest$ac_cv_exeext b.out
 ac_clean_files=$ac_clean_files_save
-{ $as_echo "$as_me:${as_lineno-2176}: checking for suffix of executables" >&5
+{ $as_echo "$as_me:${as_lineno-2178}: checking for suffix of executables" >&5
 $as_echo_n "checking for suffix of executables... " >&6; }
 if { { ac_try="$ac_link"
 case "(($ac_try" in
   *\"* | *\`* | *\\*) ac_try_echo=\$ac_try;;
   *) ac_try_echo=$ac_try;;
 esac
-eval ac_try_echo="\"\$as_me:${as_lineno-2183}: $ac_try_echo\""
+eval ac_try_echo="\"\$as_me:${as_lineno-2185}: $ac_try_echo\""
 $as_echo "$ac_try_echo"; } >&5
   (eval "$ac_link") 2>&5
   ac_status=$?
-  $as_echo "$as_me:${as_lineno-2187}: \$? = $ac_status" >&5
+  $as_echo "$as_me:${as_lineno-2189}: \$? = $ac_status" >&5
   test $ac_status = 0; }; then :
   # If both `conftest.exe' and `conftest' are `present' (well, observable)
 # catch `conftest.exe'.  For instance with Cygwin, `ls conftest' will
@@ -2200,13 +2202,13 @@ for ac_file in conftest.exe conftest conftest.*; do
   esac
 done
 else
-  { { $as_echo "$as_me:${as_lineno-2203}: error: in \`$ac_pwd':" >&5
+  { { $as_echo "$as_me:${as_lineno-2205}: error: in \`$ac_pwd':" >&5
 $as_echo "$as_me: error: in \`$ac_pwd':" >&2;}
 as_fn_error $? "cannot compute suffix of executables: cannot compile and link
-See \`config.log' for more details" "2206" 5; }
+See \`config.log' for more details" "2208" 5; }
 fi
 rm -f conftest conftest$ac_cv_exeext
-{ $as_echo "$as_me:${as_lineno-2209}: result: $ac_cv_exeext" >&5
+{ $as_echo "$as_me:${as_lineno-2211}: result: $ac_cv_exeext" >&5
 $as_echo "$ac_cv_exeext" >&6; }
 
 rm -f conftest.$ac_ext
@@ -2228,7 +2230,7 @@ _ACEOF
 ac_clean_files="$ac_clean_files conftest.out"
 # Check that the compiler produces executables we can run.  If not, either
 # the compiler is broken, or we cross compile.
-{ $as_echo "$as_me:${as_lineno-2231}: checking whether we are cross compiling" >&5
+{ $as_echo "$as_me:${as_lineno-2233}: checking whether we are cross compiling" >&5
 $as_echo_n "checking whether we are cross compiling... " >&6; }
 if test "$cross_compiling" != yes; then
   { { ac_try="$ac_link"
@@ -2236,42 +2238,42 @@ case "(($ac_try" in
   *\"* | *\`* | *\\*) ac_try_echo=\$ac_try;;
   *) ac_try_echo=$ac_try;;
 esac
-eval ac_try_echo="\"\$as_me:${as_lineno-2239}: $ac_try_echo\""
+eval ac_try_echo="\"\$as_me:${as_lineno-2241}: $ac_try_echo\""
 $as_echo "$ac_try_echo"; } >&5
   (eval "$ac_link") 2>&5
   ac_status=$?
-  $as_echo "$as_me:${as_lineno-2243}: \$? = $ac_status" >&5
+  $as_echo "$as_me:${as_lineno-2245}: \$? = $ac_status" >&5
   test $ac_status = 0; }
   if { ac_try='./conftest$ac_cv_exeext'
   { { case "(($ac_try" in
   *\"* | *\`* | *\\*) ac_try_echo=\$ac_try;;
   *) ac_try_echo=$ac_try;;
 esac
-eval ac_try_echo="\"\$as_me:${as_lineno-2250}: $ac_try_echo\""
+eval ac_try_echo="\"\$as_me:${as_lineno-2252}: $ac_try_echo\""
 $as_echo "$ac_try_echo"; } >&5
   (eval "$ac_try") 2>&5
   ac_status=$?
-  $as_echo "$as_me:${as_lineno-2254}: \$? = $ac_status" >&5
+  $as_echo "$as_me:${as_lineno-2256}: \$? = $ac_status" >&5
   test $ac_status = 0; }; }; then
     cross_compiling=no
   else
     if test "$cross_compiling" = maybe; then
 	cross_compiling=yes
     else
-	{ { $as_echo "$as_me:${as_lineno-2261}: error: in \`$ac_pwd':" >&5
+	{ { $as_echo "$as_me:${as_lineno-2263}: error: in \`$ac_pwd':" >&5
 $as_echo "$as_me: error: in \`$ac_pwd':" >&2;}
 as_fn_error $? "cannot run C compiled programs.
 If you meant to cross compile, use \`--host'.
-See \`config.log' for more details" "2265" 5; }
+See \`config.log' for more details" "2267" 5; }
     fi
   fi
 fi
-{ $as_echo "$as_me:${as_lineno-2269}: result: $cross_compiling" >&5
+{ $as_echo "$as_me:${as_lineno-2271}: result: $cross_compiling" >&5
 $as_echo "$cross_compiling" >&6; }
 
 rm -f conftest.$ac_ext conftest$ac_cv_exeext conftest.out
 ac_clean_files=$ac_clean_files_save
-{ $as_echo "$as_me:${as_lineno-2274}: checking for suffix of object files" >&5
+{ $as_echo "$as_me:${as_lineno-2276}: checking for suffix of object files" >&5
 $as_echo_n "checking for suffix of object files... " >&6; }
 if ${ac_cv_objext+:} false; then :
   $as_echo_n "(cached) " >&6
@@ -2293,11 +2295,11 @@ case "(($ac_try" in
   *\"* | *\`* | *\\*) ac_try_echo=\$ac_try;;
   *) ac_try_echo=$ac_try;;
 esac
-eval ac_try_echo="\"\$as_me:${as_lineno-2296}: $ac_try_echo\""
+eval ac_try_echo="\"\$as_me:${as_lineno-2298}: $ac_try_echo\""
 $as_echo "$ac_try_echo"; } >&5
   (eval "$ac_compile") 2>&5
   ac_status=$?
-  $as_echo "$as_me:${as_lineno-2300}: \$? = $ac_status" >&5
+  $as_echo "$as_me:${as_lineno-2302}: \$? = $ac_status" >&5
   test $ac_status = 0; }; then :
   for ac_file in conftest.o conftest.obj conftest.*; do
   test -f "$ac_file" || continue;
@@ -2311,18 +2313,18 @@ else
   $as_echo "$as_me: failed program was:" >&5
 sed 's/^/| /' conftest.$ac_ext >&5
 
-{ { $as_echo "$as_me:${as_lineno-2314}: error: in \`$ac_pwd':" >&5
+{ { $as_echo "$as_me:${as_lineno-2316}: error: in \`$ac_pwd':" >&5
 $as_echo "$as_me: error: in \`$ac_pwd':" >&2;}
 as_fn_error $? "cannot compute suffix of object files: cannot compile
-See \`config.log' for more details" "2317" 5; }
+See \`config.log' for more details" "2319" 5; }
 fi
 rm -f conftest.$ac_cv_objext conftest.$ac_ext
 fi
-{ $as_echo "$as_me:${as_lineno-2321}: result: $ac_cv_objext" >&5
+{ $as_echo "$as_me:${as_lineno-2323}: result: $ac_cv_objext" >&5
 $as_echo "$ac_cv_objext" >&6; }
 OBJEXT=$ac_cv_objext
 ac_objext=$OBJEXT
-{ $as_echo "$as_me:${as_lineno-2325}: checking whether we are using the GNU C compiler" >&5
+{ $as_echo "$as_me:${as_lineno-2327}: checking whether we are using the GNU C compiler" >&5
 $as_echo_n "checking whether we are using the GNU C compiler... " >&6; }
 if ${ac_cv_c_compiler_gnu+:} false; then :
   $as_echo_n "(cached) " >&6
@@ -2341,7 +2343,7 @@ main ()
   return 0;
 }
 _ACEOF
-if ac_fn_c_try_compile "2344"; then :
+if ac_fn_c_try_compile "2346"; then :
   ac_compiler_gnu=yes
 else
   ac_compiler_gnu=no
@@ -2350,7 +2352,7 @@ rm -f core conftest.err conftest.$ac_objext conftest.$ac_ext
 ac_cv_c_compiler_gnu=$ac_compiler_gnu
 
 fi
-{ $as_echo "$as_me:${as_lineno-2353}: result: $ac_cv_c_compiler_gnu" >&5
+{ $as_echo "$as_me:${as_lineno-2355}: result: $ac_cv_c_compiler_gnu" >&5
 $as_echo "$ac_cv_c_compiler_gnu" >&6; }
 if test $ac_compiler_gnu = yes; then
   GCC=yes
@@ -2359,7 +2361,7 @@ else
 fi
 ac_test_CFLAGS=${CFLAGS+set}
 ac_save_CFLAGS=$CFLAGS
-{ $as_echo "$as_me:${as_lineno-2362}: checking whether $CC accepts -g" >&5
+{ $as_echo "$as_me:${as_lineno-2364}: checking whether $CC accepts -g" >&5
 $as_echo_n "checking whether $CC accepts -g... " >&6; }
 if ${ac_cv_prog_cc_g+:} false; then :
   $as_echo_n "(cached) " >&6
@@ -2379,7 +2381,7 @@ main ()
   return 0;
 }
 _ACEOF
-if ac_fn_c_try_compile "2382"; then :
+if ac_fn_c_try_compile "2384"; then :
   ac_cv_prog_cc_g=yes
 else
   CFLAGS=""
@@ -2394,7 +2396,7 @@ main ()
   return 0;
 }
 _ACEOF
-if ac_fn_c_try_compile "2397"; then :
+if ac_fn_c_try_compile "2399"; then :
 
 else
   ac_c_werror_flag=$ac_save_c_werror_flag
@@ -2410,7 +2412,7 @@ main ()
   return 0;
 }
 _ACEOF
-if ac_fn_c_try_compile "2413"; then :
+if ac_fn_c_try_compile "2415"; then :
   ac_cv_prog_cc_g=yes
 fi
 rm -f core conftest.err conftest.$ac_objext conftest.$ac_ext
@@ -2420,7 +2422,7 @@ fi
 rm -f core conftest.err conftest.$ac_objext conftest.$ac_ext
    ac_c_werror_flag=$ac_save_c_werror_flag
 fi
-{ $as_echo "$as_me:${as_lineno-2423}: result: $ac_cv_prog_cc_g" >&5
+{ $as_echo "$as_me:${as_lineno-2425}: result: $ac_cv_prog_cc_g" >&5
 $as_echo "$ac_cv_prog_cc_g" >&6; }
 if test "$ac_test_CFLAGS" = set; then
   CFLAGS=$ac_save_CFLAGS
@@ -2437,7 +2439,7 @@ else
     CFLAGS=
   fi
 fi
-{ $as_echo "$as_me:${as_lineno-2440}: checking for $CC option to accept ISO C89" >&5
+{ $as_echo "$as_me:${as_lineno-2442}: checking for $CC option to accept ISO C89" >&5
 $as_echo_n "checking for $CC option to accept ISO C89... " >&6; }
 if ${ac_cv_prog_cc_c89+:} false; then :
   $as_echo_n "(cached) " >&6
@@ -2500,7 +2502,7 @@ for ac_arg in '' -qlanglvl=extc89 -qlanglvl=ansi -std \
 	-Ae "-Aa -D_HPUX_SOURCE" "-Xc -D__EXTENSIONS__"
 do
   CC="$ac_save_CC $ac_arg"
-  if ac_fn_c_try_compile "2503"; then :
+  if ac_fn_c_try_compile "2505"; then :
   ac_cv_prog_cc_c89=$ac_arg
 fi
 rm -f core conftest.err conftest.$ac_objext
@@ -2513,14 +2515,14 @@ fi
 # AC_CACHE_VAL
 case "x$ac_cv_prog_cc_c89" in
   x)
-    { $as_echo "$as_me:${as_lineno-2516}: result: none needed" >&5
+    { $as_echo "$as_me:${as_lineno-2518}: result: none needed" >&5
 $as_echo "none needed" >&6; } ;;
   xno)
-    { $as_echo "$as_me:${as_lineno-2519}: result: unsupported" >&5
+    { $as_echo "$as_me:${as_lineno-2521}: result: unsupported" >&5
 $as_echo "unsupported" >&6; } ;;
   *)
     CC="$CC $ac_cv_prog_cc_c89"
-    { $as_echo "$as_me:${as_lineno-2523}: result: $ac_cv_prog_cc_c89" >&5
+    { $as_echo "$as_me:${as_lineno-2525}: result: $ac_cv_prog_cc_c89" >&5
 $as_echo "$ac_cv_prog_cc_c89" >&6; } ;;
 esac
 if test "x$ac_cv_prog_cc_c89" != xno; then :
@@ -2562,7 +2564,7 @@ CCFLAGS="$CCFLAGS -fPIC"
 # Debian if DPKG_DEB is not ""
 # Extract the first word of "dpkg-deb", so it can be a program name with args.
 set dummy dpkg-deb; ac_word=$2
-{ $as_echo "$as_me:${as_lineno-2565}: checking for $ac_word" >&5
+{ $as_echo "$as_me:${as_lineno-2567}: checking for $ac_word" >&5
 $as_echo_n "checking for $ac_word... " >&6; }
 if ${ac_cv_path_DPKG_DEB+:} false; then :
   $as_echo_n "(cached) " >&6
@@ -2580,7 +2582,7 @@ do
     for ac_exec_ext in '' $ac_executable_extensions; do
   if as_fn_executable_p "$as_dir/$ac_word$ac_exec_ext"; then
     ac_cv_path_DPKG_DEB="$as_dir/$ac_word$ac_exec_ext"
-    $as_echo "$as_me:${as_lineno-2583}: found $as_dir/$ac_word$ac_exec_ext" >&5
+    $as_echo "$as_me:${as_lineno-2585}: found $as_dir/$ac_word$ac_exec_ext" >&5
     break 2
   fi
 done
@@ -2592,17 +2594,17 @@ esac
 fi
 DPKG_DEB=$ac_cv_path_DPKG_DEB
 if test -n "$DPKG_DEB"; then
-  { $as_echo "$as_me:${as_lineno-2595}: result: $DPKG_DEB" >&5
+  { $as_echo "$as_me:${as_lineno-2597}: result: $DPKG_DEB" >&5
 $as_echo "$DPKG_DEB" >&6; }
 else
-  { $as_echo "$as_me:${as_lineno-2598}: result: no" >&5
+  { $as_echo "$as_me:${as_lineno-2600}: result: no" >&5
 $as_echo "no" >&6; }
 fi
 
 
 # Extract the first word of "dpkg-architecture", so it can be a program name with args.
 set dummy dpkg-architecture; ac_word=$2
-{ $as_echo "$as_me:${as_lineno-2605}: checking for $ac_word" >&5
+{ $as_echo "$as_me:${as_lineno-2607}: checking for $ac_word" >&5
 $as_echo_n "checking for $ac_word... " >&6; }
 if ${ac_cv_path_DPKG_ARCH+:} false; then :
   $as_echo_n "(cached) " >&6
@@ -2620,7 +2622,7 @@ do
     for ac_exec_ext in '' $ac_executable_extensions; do
   if as_fn_executable_p "$as_dir/$ac_word$ac_exec_ext"; then
     ac_cv_path_DPKG_ARCH="$as_dir/$ac_word$ac_exec_ext"
-    $as_echo "$as_me:${as_lineno-2623}: found $as_dir/$ac_word$ac_exec_ext" >&5
+    $as_echo "$as_me:${as_lineno-2625}: found $as_dir/$ac_word$ac_exec_ext" >&5
     break 2
   fi
 done
@@ -2632,10 +2634,10 @@ esac
 fi
 DPKG_ARCH=$ac_cv_path_DPKG_ARCH
 if test -n "$DPKG_ARCH"; then
-  { $as_echo "$as_me:${as_lineno-2635}: result: $DPKG_ARCH" >&5
+  { $as_echo "$as_me:${as_lineno-2637}: result: $DPKG_ARCH" >&5
 $as_echo "$DPKG_ARCH" >&6; }
 else
-  { $as_echo "$as_me:${as_lineno-2638}: result: no" >&5
+  { $as_echo "$as_me:${as_lineno-2640}: result: no" >&5
 $as_echo "no" >&6; }
 fi
 
@@ -2649,12 +2651,12 @@ if test -n "$ARCHITECTURE"; then :
 
     ARCHITECTURE=$ARCHITECTURE
 
-    { $as_echo "$as_me:${as_lineno-2652}: 'Build architecture $ARCHITECTURE'" >&5
+    { $as_echo "$as_me:${as_lineno-2654}: 'Build architecture $ARCHITECTURE'" >&5
 $as_echo "$as_me: 'Build architecture $ARCHITECTURE'" >&6;}
 
 else
 
-    { $as_echo "$as_me:${as_lineno-2657}: 'Build architecture unknown'" >&5
+    { $as_echo "$as_me:${as_lineno-2659}: 'Build architecture unknown'" >&5
 $as_echo "$as_me: 'Build architecture unknown'" >&6;}
 
 fi;
@@ -2663,7 +2665,7 @@ fi;
 # Distribution detection and dependencies
 # Extract the first word of "sudo", so it can be a program name with args.
 set dummy sudo; ac_word=$2
-{ $as_echo "$as_me:${as_lineno-2666}: checking for $ac_word" >&5
+{ $as_echo "$as_me:${as_lineno-2668}: checking for $ac_word" >&5
 $as_echo_n "checking for $ac_word... " >&6; }
 if ${ac_cv_path_SUDO+:} false; then :
   $as_echo_n "(cached) " >&6
@@ -2681,7 +2683,7 @@ do
     for ac_exec_ext in '' $ac_executable_extensions; do
   if as_fn_executable_p "$as_dir/$ac_word$ac_exec_ext"; then
     ac_cv_path_SUDO="$as_dir/$ac_word$ac_exec_ext"
-    $as_echo "$as_me:${as_lineno-2684}: found $as_dir/$ac_word$ac_exec_ext" >&5
+    $as_echo "$as_me:${as_lineno-2686}: found $as_dir/$ac_word$ac_exec_ext" >&5
     break 2
   fi
 done
@@ -2693,17 +2695,17 @@ esac
 fi
 SUDO=$ac_cv_path_SUDO
 if test -n "$SUDO"; then
-  { $as_echo "$as_me:${as_lineno-2696}: result: $SUDO" >&5
+  { $as_echo "$as_me:${as_lineno-2698}: result: $SUDO" >&5
 $as_echo "$SUDO" >&6; }
 else
-  { $as_echo "$as_me:${as_lineno-2699}: result: no" >&5
+  { $as_echo "$as_me:${as_lineno-2701}: result: no" >&5
 $as_echo "no" >&6; }
 fi
 
 
 # Extract the first word of "apt-get", so it can be a program name with args.
 set dummy apt-get; ac_word=$2
-{ $as_echo "$as_me:${as_lineno-2706}: checking for $ac_word" >&5
+{ $as_echo "$as_me:${as_lineno-2708}: checking for $ac_word" >&5
 $as_echo_n "checking for $ac_word... " >&6; }
 if ${ac_cv_path_APT_GET+:} false; then :
   $as_echo_n "(cached) " >&6
@@ -2721,7 +2723,7 @@ do
     for ac_exec_ext in '' $ac_executable_extensions; do
   if as_fn_executable_p "$as_dir/$ac_word$ac_exec_ext"; then
     ac_cv_path_APT_GET="$as_dir/$ac_word$ac_exec_ext"
-    $as_echo "$as_me:${as_lineno-2724}: found $as_dir/$ac_word$ac_exec_ext" >&5
+    $as_echo "$as_me:${as_lineno-2726}: found $as_dir/$ac_word$ac_exec_ext" >&5
     break 2
   fi
 done
@@ -2733,17 +2735,17 @@ esac
 fi
 APT_GET=$ac_cv_path_APT_GET
 if test -n "$APT_GET"; then
-  { $as_echo "$as_me:${as_lineno-2736}: result: $APT_GET" >&5
+  { $as_echo "$as_me:${as_lineno-2738}: result: $APT_GET" >&5
 $as_echo "$APT_GET" >&6; }
 else
-  { $as_echo "$as_me:${as_lineno-2739}: result: no" >&5
+  { $as_echo "$as_me:${as_lineno-2741}: result: no" >&5
 $as_echo "no" >&6; }
 fi
 
 
 # Extract the first word of "apk", so it can be a program name with args.
 set dummy apk; ac_word=$2
-{ $as_echo "$as_me:${as_lineno-2746}: checking for $ac_word" >&5
+{ $as_echo "$as_me:${as_lineno-2748}: checking for $ac_word" >&5
 $as_echo_n "checking for $ac_word... " >&6; }
 if ${ac_cv_path_APK+:} false; then :
   $as_echo_n "(cached) " >&6
@@ -2761,7 +2763,7 @@ do
     for ac_exec_ext in '' $ac_executable_extensions; do
   if as_fn_executable_p "$as_dir/$ac_word$ac_exec_ext"; then
     ac_cv_path_APK="$as_dir/$ac_word$ac_exec_ext"
-    $as_echo "$as_me:${as_lineno-2764}: found $as_dir/$ac_word$ac_exec_ext" >&5
+    $as_echo "$as_me:${as_lineno-2766}: found $as_dir/$ac_word$ac_exec_ext" >&5
     break 2
   fi
 done
@@ -2773,47 +2775,47 @@ esac
 fi
 APK=$ac_cv_path_APK
 if test -n "$APK"; then
-  { $as_echo "$as_me:${as_lineno-2776}: result: $APK" >&5
+  { $as_echo "$as_me:${as_lineno-2778}: result: $APK" >&5
 $as_echo "$APK" >&6; }
 else
-  { $as_echo "$as_me:${as_lineno-2779}: result: no" >&5
+  { $as_echo "$as_me:${as_lineno-2781}: result: no" >&5
 $as_echo "no" >&6; }
 fi
 
 
 
-{ $as_echo "$as_me:${as_lineno-2785}: checking for /etc/os-release" >&5
+{ $as_echo "$as_me:${as_lineno-2787}: checking for /etc/os-release" >&5
 $as_echo_n "checking for /etc/os-release... " >&6; }
 if ${ac_cv_file__etc_os_release+:} false; then :
   $as_echo_n "(cached) " >&6
 else
   test "$cross_compiling" = yes &&
-  as_fn_error $? "cannot check for file existence when cross compiling" "2791" 5
+  as_fn_error $? "cannot check for file existence when cross compiling" "2793" 5
 if test -r "/etc/os-release"; then
   ac_cv_file__etc_os_release=yes
 else
   ac_cv_file__etc_os_release=no
 fi
 fi
-{ $as_echo "$as_me:${as_lineno-2798}: result: $ac_cv_file__etc_os_release" >&5
+{ $as_echo "$as_me:${as_lineno-2800}: result: $ac_cv_file__etc_os_release" >&5
 $as_echo "$ac_cv_file__etc_os_release" >&6; }
 if test "x$ac_cv_file__etc_os_release" = xyes; then :
 
     DISTRIBUTION=$(. /etc/os-release;echo $ID)
-    { $as_echo "$as_me:${as_lineno-2803}: 'Build distribution $DISTRIBUTION ($(. /etc/os-release;echo $VERSION_ID))'" >&5
+    { $as_echo "$as_me:${as_lineno-2805}: 'Build distribution $DISTRIBUTION ($(. /etc/os-release;echo $VERSION_ID))'" >&5
 $as_echo "$as_me: 'Build distribution $DISTRIBUTION ($(. /etc/os-release;echo $VERSION_ID))'" >&6;}
 
 fi
 
 
 as_ac_File=`$as_echo "ac_cv_file_dependencies/$DISTRIBUTION" | $as_tr_sh`
-{ $as_echo "$as_me:${as_lineno-2810}: checking for dependencies/$DISTRIBUTION" >&5
+{ $as_echo "$as_me:${as_lineno-2812}: checking for dependencies/$DISTRIBUTION" >&5
 $as_echo_n "checking for dependencies/$DISTRIBUTION... " >&6; }
 if eval \${$as_ac_File+:} false; then :
   $as_echo_n "(cached) " >&6
 else
   test "$cross_compiling" = yes &&
-  as_fn_error $? "cannot check for file existence when cross compiling" "2816" 5
+  as_fn_error $? "cannot check for file existence when cross compiling" "2818" 5
 if test -r "dependencies/$DISTRIBUTION"; then
   eval "$as_ac_File=yes"
 else
@@ -2821,7 +2823,7 @@ else
 fi
 fi
 eval ac_res=\$$as_ac_File
-	       { $as_echo "$as_me:${as_lineno-2824}: result: $ac_res" >&5
+	       { $as_echo "$as_me:${as_lineno-2826}: result: $ac_res" >&5
 $as_echo "$ac_res" >&6; }
 if eval test \"x\$"$as_ac_File"\" = x"yes"; then :
 
@@ -2846,7 +2848,7 @@ fi
 
 if test "x$enable_dependencies" != "xno" -a "x$DISTRIBUTION" != "x" -a -n "$APT_GET" ; then :
 
-    { $as_echo "$as_me:${as_lineno-2849}: 'Installing dependencies'" >&5
+    { $as_echo "$as_me:${as_lineno-2851}: 'Installing dependencies'" >&5
 $as_echo "$as_me: 'Installing dependencies'" >&6;}
     if test "x$APT_GET" != "x"; then :
   $SUDO $APT_GET install -y $PKG_DEPENDENCIES
@@ -2856,6 +2858,15 @@ fi
 fi
 
 fi
+
+# ======================================================================
+head APKBUILD >/tmp/apkbuild
+. /tmp/apkbuild
+PKGBANNER="$pkgdesc"
+
+date=$(date)
+PKGBUILD="$pkgname ${pkgver}r${pkgrel} $arch $date"
+
 
 # ======================================================================
 # Finish off generating all files
@@ -2917,7 +2928,7 @@ _ACEOF
     case $ac_val in #(
     *${as_nl}*)
       case $ac_var in #(
-      *_cv_*) { $as_echo "$as_me:${as_lineno-2920}: WARNING: cache variable $ac_var contains a newline" >&5
+      *_cv_*) { $as_echo "$as_me:${as_lineno-2931}: WARNING: cache variable $ac_var contains a newline" >&5
 $as_echo "$as_me: WARNING: cache variable $ac_var contains a newline" >&2;} ;;
       esac
       case $ac_var in #(
@@ -2955,7 +2966,7 @@ $as_echo "$as_me: WARNING: cache variable $ac_var contains a newline" >&2;} ;;
 if diff "$cache_file" confcache >/dev/null 2>&1; then :; else
   if test -w "$cache_file"; then
     if test "x$cache_file" != "x/dev/null"; then
-      { $as_echo "$as_me:${as_lineno-2958}: updating cache $cache_file" >&5
+      { $as_echo "$as_me:${as_lineno-2969}: updating cache $cache_file" >&5
 $as_echo "$as_me: updating cache $cache_file" >&6;}
       if test ! -f "$cache_file" || test -h "$cache_file"; then
 	cat confcache >"$cache_file"
@@ -2970,7 +2981,7 @@ $as_echo "$as_me: updating cache $cache_file" >&6;}
       fi
     fi
   else
-    { $as_echo "$as_me:${as_lineno-2973}: not updating unwritable cache $cache_file" >&5
+    { $as_echo "$as_me:${as_lineno-2984}: not updating unwritable cache $cache_file" >&5
 $as_echo "$as_me: not updating unwritable cache $cache_file" >&6;}
   fi
 fi
@@ -3040,7 +3051,7 @@ LTLIBOBJS=$ac_ltlibobjs
 ac_write_fail=0
 ac_clean_files_save=$ac_clean_files
 ac_clean_files="$ac_clean_files $CONFIG_STATUS"
-{ $as_echo "$as_me:${as_lineno-3043}: creating $CONFIG_STATUS" >&5
+{ $as_echo "$as_me:${as_lineno-3054}: creating $CONFIG_STATUS" >&5
 $as_echo "$as_me: creating $CONFIG_STATUS" >&6;}
 as_write_fail=0
 cat >$CONFIG_STATUS <<_ASEOF || as_write_fail=1
@@ -3193,7 +3204,7 @@ as_fn_error ()
   as_status=$1; test $as_status -eq 0 && as_status=1
   if test "$4"; then
     as_lineno=${as_lineno-"$3"} as_lineno_stack=as_lineno_stack=$as_lineno_stack
-    $as_echo "$as_me:${as_lineno-3196}: error: $2" >&$4
+    $as_echo "$as_me:${as_lineno-3207}: error: $2" >&$4
   fi
   $as_echo "$as_me: error: $2" >&2
   as_fn_exit $as_status
@@ -3597,7 +3608,7 @@ do
   case $ac_config_target in
     "$MAKEFILES") CONFIG_FILES="$CONFIG_FILES $MAKEFILES" ;;
 
-  *) as_fn_error $? "invalid argument: \`$ac_config_target'" "3600" 5;;
+  *) as_fn_error $? "invalid argument: \`$ac_config_target'" "3611" 5;;
   esac
 done
 
@@ -3634,7 +3645,7 @@ $debug ||
 {
   tmp=./conf$$-$RANDOM
   (umask 077 && mkdir "$tmp")
-} || as_fn_error $? "cannot create a temporary directory in ." "3637" 5
+} || as_fn_error $? "cannot create a temporary directory in ." "3648" 5
 ac_tmp=$tmp
 
 # Set up the scripts for CONFIG_FILES section.
@@ -3666,18 +3677,18 @@ _ACEOF
   echo "$ac_subst_vars" | sed 's/.*/&!$&$ac_delim/' &&
   echo "_ACEOF"
 } >conf$$subs.sh ||
-  as_fn_error $? "could not make $CONFIG_STATUS" "3669" 5
+  as_fn_error $? "could not make $CONFIG_STATUS" "3680" 5
 ac_delim_num=`echo "$ac_subst_vars" | grep -c '^'`
 ac_delim='%!_!# '
 for ac_last_try in false false false false false :; do
   . ./conf$$subs.sh ||
-    as_fn_error $? "could not make $CONFIG_STATUS" "3674" 5
+    as_fn_error $? "could not make $CONFIG_STATUS" "3685" 5
 
   ac_delim_n=`sed -n "s/.*$ac_delim\$/X/p" conf$$subs.awk | grep -c X`
   if test $ac_delim_n = $ac_delim_num; then
     break
   elif $ac_last_try; then
-    as_fn_error $? "could not make $CONFIG_STATUS" "3680" 5
+    as_fn_error $? "could not make $CONFIG_STATUS" "3691" 5
   else
     ac_delim="$ac_delim!$ac_delim _$ac_delim!! "
   fi
@@ -3766,7 +3777,7 @@ if sed "s/$ac_cr//" < /dev/null > /dev/null 2>&1; then
 else
   cat
 fi < "$ac_tmp/subs1.awk" > "$ac_tmp/subs.awk" \
-  || as_fn_error $? "could not setup config files machinery" "3769" 5
+  || as_fn_error $? "could not setup config files machinery" "3780" 5
 _ACEOF
 
 # VPATH may cause trouble with some makes, so we remove sole $(srcdir),
@@ -3805,7 +3816,7 @@ do
   esac
   case $ac_mode$ac_tag in
   :[FHL]*:*);;
-  :L* | :C*:*) as_fn_error $? "invalid tag \`$ac_tag'" "3808" 5;;
+  :L* | :C*:*) as_fn_error $? "invalid tag \`$ac_tag'" "3819" 5;;
   :[FH]-) ac_tag=-:-;;
   :[FH]*) ac_tag=$ac_tag:$ac_tag.in;;
   esac
@@ -3833,7 +3844,7 @@ do
 	   [\\/$]*) false;;
 	   *) test -f "$srcdir/$ac_f" && ac_f="$srcdir/$ac_f";;
 	   esac ||
-	   as_fn_error 1 "cannot find input file: \`$ac_f'" "3836" 5;;
+	   as_fn_error 1 "cannot find input file: \`$ac_f'" "3847" 5;;
       esac
       case $ac_f in *\'*) ac_f=`$as_echo "$ac_f" | sed "s/'/'\\\\\\\\''/g"`;; esac
       as_fn_append ac_file_inputs " '$ac_f'"
@@ -3847,7 +3858,7 @@ do
 	`' by configure.'
     if test x"$ac_file" != x-; then
       configure_input="$ac_file.  $configure_input"
-      { $as_echo "$as_me:${as_lineno-3850}: creating $ac_file" >&5
+      { $as_echo "$as_me:${as_lineno-3861}: creating $ac_file" >&5
 $as_echo "$as_me: creating $ac_file" >&6;}
     fi
     # Neutralize special characters interpreted by sed in replacement strings.
@@ -3860,7 +3871,7 @@ $as_echo "$as_me: creating $ac_file" >&6;}
 
     case $ac_tag in
     *:-:* | *:-) cat >"$ac_tmp/stdin" \
-      || as_fn_error $? "could not create $ac_file" "3863" 5 ;;
+      || as_fn_error $? "could not create $ac_file" "3874" 5 ;;
     esac
     ;;
   esac
@@ -3949,7 +3960,7 @@ ac_sed_dataroot='
 case `eval "sed -n \"\$ac_sed_dataroot\" $ac_file_inputs"` in
 *datarootdir*) ac_datarootdir_seen=yes;;
 *@datadir@*|*@docdir@*|*@infodir@*|*@localedir@*|*@mandir@*)
-  { $as_echo "$as_me:${as_lineno-3952}: WARNING: $ac_file_inputs seems to ignore the --datarootdir setting" >&5
+  { $as_echo "$as_me:${as_lineno-3963}: WARNING: $ac_file_inputs seems to ignore the --datarootdir setting" >&5
 $as_echo "$as_me: WARNING: $ac_file_inputs seems to ignore the --datarootdir setting" >&2;}
 _ACEOF
 cat >>$CONFIG_STATUS <<_ACEOF || ac_write_fail=1
@@ -3986,13 +3997,13 @@ s&@abs_top_builddir@&$ac_abs_top_builddir&;t t
 $ac_datarootdir_hack
 "
 eval sed \"\$ac_sed_extra\" "$ac_file_inputs" | $AWK -f "$ac_tmp/subs.awk" \
-  >$ac_tmp/out || as_fn_error $? "could not create $ac_file" "3989" 5
+  >$ac_tmp/out || as_fn_error $? "could not create $ac_file" "4000" 5
 
 test -z "$ac_datarootdir_hack$ac_datarootdir_seen" &&
   { ac_out=`sed -n '/\${datarootdir}/p' "$ac_tmp/out"`; test -n "$ac_out"; } &&
   { ac_out=`sed -n '/^[	 ]*datarootdir[	 ]*:*=/p' \
       "$ac_tmp/out"`; test -z "$ac_out"; } &&
-  { $as_echo "$as_me:${as_lineno-3995}: WARNING: $ac_file contains a reference to the variable \`datarootdir'
+  { $as_echo "$as_me:${as_lineno-4006}: WARNING: $ac_file contains a reference to the variable \`datarootdir'
 which seems to be undefined.  Please make sure it is defined" >&5
 $as_echo "$as_me: WARNING: $ac_file contains a reference to the variable \`datarootdir'
 which seems to be undefined.  Please make sure it is defined" >&2;}
@@ -4002,7 +4013,7 @@ which seems to be undefined.  Please make sure it is defined" >&2;}
   -) cat "$ac_tmp/out" && rm -f "$ac_tmp/out";;
   *) rm -f "$ac_file" && mv "$ac_tmp/out" "$ac_file";;
   esac \
-  || as_fn_error $? "could not create $ac_file" "4005" 5
+  || as_fn_error $? "could not create $ac_file" "4016" 5
  ;;
 
 
@@ -4017,7 +4028,7 @@ _ACEOF
 ac_clean_files=$ac_clean_files_save
 
 test $ac_write_fail = 0 ||
-  as_fn_error $? "write failure creating $CONFIG_STATUS" "4020" 5
+  as_fn_error $? "write failure creating $CONFIG_STATUS" "4031" 5
 
 
 # configure is writing to config.log, and then calls config.status.
@@ -4041,10 +4052,10 @@ if test "$no_create" != yes; then
   $ac_cs_success || as_fn_exit 1
 fi
 if test -n "$ac_unrecognized_opts" && test "$enable_option_checking" != no; then
-  { $as_echo "$as_me:${as_lineno-4044}: WARNING: unrecognized options: $ac_unrecognized_opts" >&5
+  { $as_echo "$as_me:${as_lineno-4055}: WARNING: unrecognized options: $ac_unrecognized_opts" >&5
 $as_echo "$as_me: WARNING: unrecognized options: $ac_unrecognized_opts" >&2;}
 fi
 
 
-{ $as_echo "$as_me:${as_lineno-4049}: Now run make clean;make" >&5
+{ $as_echo "$as_me:${as_lineno-4060}: Now run make clean;make" >&5
 $as_echo "$as_me: Now run make clean;make" >&6;}

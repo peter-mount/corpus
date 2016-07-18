@@ -55,3 +55,4 @@ config.cache
 /package/debian/control
 
 /build/
+/include/networkrail/corpus/version.h

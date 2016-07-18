@@ -22,7 +22,9 @@ extern "C" {
         struct CorpusEntry corpus;
     };
 
+    extern int import_corpus(struct json_object *obj, struct List *list);
     extern struct CorpusNode *corpus_import_entry(struct json_object *obj);
+    extern int write_corpus_list(struct List *data, FILE *file);
 
 #ifdef __cplusplus
 }

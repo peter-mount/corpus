@@ -1,0 +1,2 @@
+#define PKGBANNER "@PKGBANNER@"
+#define PKGBUILD "@PKGBUILD@"

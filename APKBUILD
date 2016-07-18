@@ -2,7 +2,7 @@
 
 pkgname="nrod-corpus"
 pkgver="0.1"
-pkgrel="1"
+pkgrel="2"
 pkgdesc="Area51 Network Rail Corpus Database"
 arch="x86_64"
 url="https://area51.onl/"
@@ -21,7 +21,7 @@ package() {
   autoconf
   ./configure
   make clean
-  make
+  make -j1
   mkdir -p "$pkgdir/usr/bin"
   cp -rp build/package/usr/bin/* "$pkgdir/usr/bin"
   mkdir -p "$pkgdir/usr/lib"
@@ -32,4 +32,5 @@ dev() {
   depends="$pkgname nrod-corpus"
   mkdir -p "$subpkgdir/usr/include"
   cp -rp build/package/usr/include/* "$subpkgdir/usr/include"
+  rm -f "$subpkgdir/usr/include/networkrail/corpus/version.*"
 }

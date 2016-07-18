@@ -588,6 +588,8 @@ ac_subst_vars='LTLIBOBJS
 LIBOBJS
 CCFLAGS
 DIRECTORIES
+PKGBUILD
+PKGBANNER
 DEPENDENCIES
 APK
 APT_GET
@@ -2856,6 +2858,15 @@ fi
 fi
 
 fi
+
+# ======================================================================
+head APKBUILD >/tmp/apkbuild
+. /tmp/apkbuild
+PKGBANNER="$pkgdesc"
+
+date=$(date)
+PKGBUILD="$pkgname ${pkgver}r${pkgrel} $arch $date"
+
 
 # ======================================================================
 # Finish off generating all files

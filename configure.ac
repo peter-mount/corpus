@@ -65,6 +65,13 @@ AS_IF([test "x$enable_dependencies" != "xno" -a "x$DISTRIBUTION" != "x" -a -n "$
 ])
 
 # ======================================================================
+head APKBUILD >/tmp/apkbuild
+. /tmp/apkbuild
+AC_SUBST([PKGBANNER],["$pkgdesc"])
+date=$(date)
+AC_SUBST([PKGBUILD],["$pkgname ${pkgver}r${pkgrel} $arch $date"])
+
+# ======================================================================
 # Finish off generating all files
 
 LDFLAGS="-lcorpus $LDFLAGS -larea51 -ljson-c -lcurl"
