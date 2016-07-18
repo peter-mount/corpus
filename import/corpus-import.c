@@ -11,8 +11,14 @@
 #include <networkrail/corpus.h>
 #include <networkrail/corpus/import.h>
 #include <json-c/json.h>
-#include <area51/charbuffer.h>
 #include <log.h>
+
+#include <fcntl.h>
+#include <elf.h>
+#include <sys/mman.h>
+
+#include <sys/types.h>
+#include <sys/stat.h>
 
 /*
  * 
@@ -24,18 +30,30 @@ int main(int argc, char** argv) {
     }
 
     loginfo("Reading %s", argv[1]);
-    FILE *in = fopen(argv[1], "r");
-    struct charbuffer buf;
-    charbuffer_init(&buf);
-    charbuffer_read(&buf, in);
-    fclose(in);
 
-    loginfo("Read %d characters", buf.pos);
+    int fsock = open(argv[1], O_RDONLY);
+    if (fsock == -1) {
+        loginfo("No source %s", argv[1]);
+        exit(1);
+    }
 
-    loginfo("Decoding json");
-    struct json_tokener *tokener = json_tokener_new();
-    struct json_object *obj = json_tokener_parse_ex(tokener, buf.buffer, buf.pos);
-    json_tokener_free(tokener);
+    struct stat sb;
+    if (fstat(fsock, &sb) == -1) {
+        loginfo("No stat %s", argv[1]);
+        exit(1);
+    }
+
+    void *fmap = mmap(NULL, sb.st_size, PROT_READ, MAP_PRIVATE, fsock, 0);
+    if (fmap == MAP_FAILED) {
+        loginfo("No mmap %s", argv[1]);
+        exit(1);
+    }
+    
+    loginfo("Parsing %s", argv[1]);
+    struct json_object *obj = json_tokener_parse(fmap);
+    
+    munmap(fmap,sb.st_size);
+    close(fsock);
 
     /*
         if( json_object_get_type(obj) != json_type.json_type_object) {
@@ -50,6 +68,7 @@ int main(int argc, char** argv) {
         exit(1);
     }
 
+    loginfo("Importing corpus");
     struct List data;
     list_init(&data);
 
@@ -65,14 +84,14 @@ int main(int argc, char** argv) {
 
     loginfo("Writing %s", argv[2]);
     FILE *out = fopen(argv[2], "w");
-    
+
     // Number of records
     int listSize = list_size(&data);
-    fwrite(&listSize,sizeof(listSize),1,out);
-    
-    struct CorpusNode *node = (struct CorpusNode *)list_getHead(&data);
-    while(list_isNode(&node->node)) {
-        fwrite((void *)&node->corpus, CORPUS_REC_LEN, 1, out );
+    fwrite(&listSize, sizeof (listSize), 1, out);
+
+    struct CorpusNode *node = (struct CorpusNode *) list_getHead(&data);
+    while (list_isNode(&node->node)) {
+        fwrite((void *) &node->corpus, CORPUS_REC_LEN, 1, out);
         node = (struct CorpusNode *) list_getNext(&node->node);
     }
     fclose(out);
