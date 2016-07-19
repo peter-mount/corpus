@@ -1,0 +1,30 @@
+BUILD_DIR=build
+PACKAGE_DIR= $(BUILD_DIR)/package
+
+DIRECTORIES = @DIRECTORIES@
+
+ifneq (@DPKG_DEB@,)
+PACKAGES += $(BUILD_DIR)/@PACKAGE_NAME@_@PACKAGE_VERSION@_@ARCHITECTURE@.deb
+endif
+
+.PHONY: all
+all: $(DIRECTORIES) $(PACKAGES)
+
+.PHONY: clean
+clean:
+	rm -rf build
+
+.PHONY: $(DIRECTORIES)
+$(DIRECTORIES):
+	@$(MAKE) --keep-going --directory=$@ $(MAKECMDGOALS)
+
+.PHONY: $(MAKECMDGOALS)
+$(MAKECMDGOALS): $(DIRECTORIES)
+
+# Rule to build debian .deb packages
+%.deb:
+	@mkdir -p $(PACKAGE_DIR)/DEBIAN
+	@cp -r package/debian/control $(PACKAGE_DIR)/DEBIAN
+	@mkdir -p $(@D)
+	@DPKG_DEB@ --build $(PACKAGE_DIR) $@
+	@rm -rf $(PACKAGE_DIR)/DEBIAN
