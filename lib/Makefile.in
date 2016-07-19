@@ -1,6 +1,6 @@
 MODULE = corpus
 
-OBJS =  util/import_entry.o \
+OBJS  = util/import_entry.o \
 	util/import_file.o \
 	util/write_list.o
 
