@@ -23,6 +23,8 @@
 
 #include <networkrail/corpus/version.h>
 
+int verbose = 0;
+
 /*
  * 
  */

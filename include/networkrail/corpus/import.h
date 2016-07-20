@@ -6,8 +6,8 @@
  * Created on 18 July 2016, 11:12
  */
 
-#ifndef IMPORT_H
-#define IMPORT_H
+#ifndef CORPUS_IMPORT_H
+#define CORPUS_IMPORT_H
 
 #include <area51/json.h>
 #include <area51/list.h>
@@ -30,5 +30,5 @@ extern "C" {
 }
 #endif
 
-#endif /* IMPORT_H */
+#endif /* CORPUS_IMPORT_H */
 

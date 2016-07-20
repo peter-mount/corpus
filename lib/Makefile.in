@@ -1,6 +1,22 @@
 MODULE = corpus
 
-OBJS  = util/import_entry.o \
+OBJS  = api/stanox.o \
+	api/talpha.o \
+	api/tiploc.o \
+	api/nlc.o \
+	api/uic.o
+
+OBJS += core/index.o \
+	core/load.o
+
+OBJS += search/corpus_append.o \
+	search/find_3alpha.o \
+	search/find_nlc.o \
+	search/find_stanox.o \
+	search/find_tiploc.o \
+	search/find_uic.o
+	
+OBJS += util/import_entry.o \
 	util/import_file.o \
 	util/write_list.o
 

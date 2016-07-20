@@ -21,6 +21,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 
+#include <networkrail/corpus.h>
 #include <networkrail/corpus/version.h>
 #include <string.h>
 #include <stdbool.h>
@@ -49,11 +50,11 @@ static int parseargs(int argc, char** argv) {
                         if (s[2])
                             webserver.port = atoi(&s[2]);
                         break;
-                        
+
                     case 'v':
                         verbose++;
                         break;
-                        
+
                     default:
                         logconsole("Unsupported option %s", s);
                         return about();
@@ -81,16 +82,18 @@ static int opendb() {
         return EXIT_FAILURE;
     }
 
-    struct stat sb;
-
-    if (fsock == -1 || fstat(fsock, &sb) == -1) {
+    int rc = corpus_load_mmap(fsock);
+    if (rc) {
+        logconsole("Failed to open %s %d", database, rc);
+        close(fsock);
         return EXIT_FAILURE;
     }
 
-    dbfile = mmap(NULL, sb.st_size, PROT_READ, MAP_PRIVATE, fsock, 0);
-    if (dbfile == MAP_FAILED) {
-        return EXIT_FAILURE;
-    }
+    logconsole("Indexing");
+    corpus_index();
+
+    logconsole("Found %d records", corpus->numrecs);
+
     return 0;
 }
 
@@ -107,7 +110,13 @@ int main(int argc, char** argv) {
     rc = opendb();
     if (rc)return rc;
 
+    webserver_set_defaults();
 
+    register_corpus_api_nlc();
+    register_corpus_api_stanox();
+    register_corpus_api_talpha();
+    register_corpus_api_tiploc();
+    register_corpus_api_uic();
 
     logconsole("Starting webserver on port %d", webserver.port);
     webserver_start();
