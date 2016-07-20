@@ -32,4 +32,4 @@ then
     fi
 fi
 
-exec corpusd -p$PORT $DAT
+exec corpusd -p$PORT -ip4 -ip6 $DAT
