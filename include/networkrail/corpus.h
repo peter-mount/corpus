@@ -52,13 +52,12 @@ extern "C" {
     extern struct CorpusIndex corpusIndex;
     extern void corpus_index();
 
-    extern void corpus_append(struct charbuffer *b, struct CorpusEntry *e);
-    extern void corpus_append_list(struct charbuffer *b, struct List *l);
+    extern void corpus_append(struct charbuffer *b, struct Node *n);
 
-    extern void corpus_find_3alpha(struct charbuffer *b, char *talpha);
+    extern void corpus_find_3alpha(struct charbuffer *b, const char *talpha);
     extern void corpus_find_nlc(struct charbuffer *b, int nlc);
     extern void corpus_find_stanox(struct charbuffer *b, int stanox);
-    extern void corpus_find_tiploc(struct charbuffer *b, char *tiploc);
+    extern void corpus_find_tiploc(struct charbuffer *b, const char *tiploc);
     extern void corpus_find_uic(struct charbuffer *b, int uic);
 
     extern void register_corpus_api_nlc();

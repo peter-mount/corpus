@@ -1,12 +1,6 @@
 MODULE = corpus
 
-OBJS  = api/stanox.o \
-	api/talpha.o \
-	api/tiploc.o \
-	api/nlc.o \
-	api/uic.o
-
-OBJS += core/index.o \
+OBJS  = core/index.o \
 	core/load.o
 
 OBJS += search/corpus_append.o \

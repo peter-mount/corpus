@@ -10,6 +10,7 @@
 #include <stdlib.h>
 #include <area51/json.h>
 #include <area51/log.h>
+#include <area51/rest.h>
 #include <networkrail/corpus.h>
 #include <networkrail/corpus/import.h>
 
@@ -112,11 +113,11 @@ int main(int argc, char** argv) {
 
     webserver_set_defaults();
 
-    register_corpus_api_nlc();
-    register_corpus_api_stanox();
-    register_corpus_api_talpha();
-    register_corpus_api_tiploc();
-    register_corpus_api_uic();
+    webserver_add_search_int("/stanox", corpus_find_stanox);
+    webserver_add_search_int("/nlc", corpus_find_nlc);
+    webserver_add_search_int("/uic", corpus_find_uic);
+    webserver_add_search_str("/3alpha", corpus_find_3alpha);
+    webserver_add_search_str("/tiploc", corpus_find_tiploc);
 
     logconsole("Starting webserver on port %d", webserver.port);
     webserver_start();
