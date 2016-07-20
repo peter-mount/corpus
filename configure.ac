@@ -8,7 +8,7 @@ AC_LANG(C)
 #AC_CHECK_LIB(m, cos)
 
 # ======================================================================
-APPS="import"
+APPS="import api"
 DIRS=""
 
 # Project base for include paths
@@ -74,7 +74,7 @@ AC_SUBST([PKGBUILD],["$pkgname ${pkgver}r${pkgrel} $arch $date"])
 # ======================================================================
 # Finish off generating all files
 
-LDFLAGS="-lcorpus $LDFLAGS -larea51 -ljson-c -lcurl"
+LDFLAGS="-lcorpus $LDFLAGS -larea51-rest -larea51 -ljson-c -lmicrohttpd -lcurl"
 
 # add libraries based on the directory names, in reverse order to aid linking
 for d in $DIRS
